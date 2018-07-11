@@ -47,5 +47,10 @@ END
 DELIMITER ;                                                                                                            
 call ValidateVersion;                                                                                                  
 
+--
+-- Drop deprecated table api_user
+--
+DROP table api_user;
+
 
 INSERT INTO pf_version (id, version) VALUES (@VERSION_INT, CONCAT_WS('.', @MAJOR_VERSION, @MINOR_VERSION, @SUBMINOR_VERSION)); 
