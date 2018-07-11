@@ -94,7 +94,6 @@ our @API_V1_ROUTES = (
         }
     },
     { controller => 'Tenants' },
-    { controller => 'ApiUsers' },
     { controller => 'Locationlogs' },
     ReadonlyEndpoint('NodeCategories'),
     ReadonlyEndpoint('Classes'),
