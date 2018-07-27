@@ -454,6 +454,10 @@ ldap $ldap {
     user {
             filter = "(|(userPrincipalName=%{User-Name})(sAMAccountName=%{%{Stripped-User-Name}:-%{User-Name}}))"
     }
+    options {
+        chase_referrals = yes
+        rebind = yes
+    }
 }
 
 EOT
