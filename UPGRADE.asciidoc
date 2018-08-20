@@ -1755,3 +1755,14 @@ Queue Stats maintenance job removal
 The queue_stats maintenance job has been deprecated in favor of using pfstats. In order to remove configuration related to this maintenance job, run:
 
   /usr/local/pf/addons/upgrade/to-8.2-pfmon-conf.pl
+
+Update connection_type from WIRED_MAC_AUTH to Ethernet-NoEAP
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We merged the WIRED_MAC_AUTH and Ethernet-NoEAP to Ethernet-NoEAP so the configuration needs to be updated, to do that run:
+
+ sed -i "s/WIRED_MAC_AUTH/Ethernet-NoEAP/g" conf/profiles.conf
+ sed -i "s/WIRED_MAC_AUTH/Ethernet-NoEAP/g" conf/vlan_filters.conf
+ sed -i "s/WIRED_MAC_AUTH/Ethernet-NoEAP/g" conf/radius_filters.conf
+ sed -i "s/WIRED_MAC_AUTH/Ethernet-NoEAP/g" conf/switch_filters.conf
+ sed -i "s/WIRED_MAC_AUTH/Ethernet-NoEAP/g" conf/authentication.conf
+
