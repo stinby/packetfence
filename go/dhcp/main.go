@@ -478,7 +478,6 @@ func (h *Interface) ServeDHCP(ctx context.Context, p dhcp.Packet, msgType dhcp.M
 						// Requested IP is in the cache ?
 						if index, found := handler.hwcache.Get(p.CHAddr().String()); found {
 							// Requested IP is equal to what we have in the cache ?
-
 							if dhcp.IPAdd(handler.start, index.(int)).Equal(reqIP) {
 								Reply = true
 								Index = index.(int)
