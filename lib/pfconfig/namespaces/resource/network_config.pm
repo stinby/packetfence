@@ -53,6 +53,7 @@ sub build {
                 if ($net_addr->contains($ip)) {
                     $ConfigNetwork{$network}{'cluster_ips'} = join(',', map { $_->{"interface ".$interface{'int'}}->{ip}} @{$self->{cluster_resource}->{_servers}});
                     $ConfigNetwork{$network}{'dns_vip'} = $self->{cluster_resource}->{cfg}->{CLUSTER}->{'interface '. $interface{'int'}}->{ip} || $interface{'ip'};
+                    $ConfigNetwork{$network}{'vip'} = $self->{cluster_resource}->{cfg}->{CLUSTER}->{'interface '. $interface{'int'}}->{ip} || $interface{'ip'};
                     $ConfigNetwork{$network}{'interface'} = \%interface;
                 }
             } else {
@@ -60,6 +61,7 @@ sub build {
                 if ($net_addr->contains($ip)) {
                     $ConfigNetwork{$network}{'cluster_ips'} = join(',', map { $_->{"interface ".$interface{'int'}}->{ip}} @{$self->{cluster_resource}->{_servers}});
                     $ConfigNetwork{$network}{'dns_vip'} = $self->{cluster_resource}->{cfg}->{CLUSTER}->{'interface '. $interface{'int'}}->{ip} || $interface{'ip'};
+                    $ConfigNetwork{$network}{'vip'} = $self->{cluster_resource}->{cfg}->{CLUSTER}->{'interface '. $interface{'int'}}->{ip} || $interface{'ip'};
                     $ConfigNetwork{$network}{'interface'} = \%interface;
                 }
             }
